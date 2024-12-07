@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: black;
+            overflow: hidden;
+        }
+        #TheFuckingButton {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100vw; 
+            height: 100vh; 
+            font-size: 24px;
+            color: #a3336d;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(45deg, #000000, #a3336d); 
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: opacity 1s ease, transform 0.5s ease;
+            white-space: nowrap;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #TheFuckingButton:hover {
+            transform: scale(1.0);
+        }
+        .TheFuckingVideoBackGround {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; 
+            visibility: hidden; 
+        }
+        #TheFuckingBackGroundMusic {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+    <div class="ShitTop-Border"></div> 
+    <button id="TheFuckingButton"></button>
+    <div class="Shitbuttom-Border"></div> 
+    <video autoplay muted loop class="TheFuckingVideoBackGround" id="videoBackground">
+        <source src="The First Resurgence.mp4" type="video/mp4">
+    </video>
+    <audio id="TheFuckingBackGroundMusic" src="our coffin, sarah.mp3" loop></audio>
+    <script>
+        const button = document.getElementById('TheFuckingButton');
+        const text = "click to enter";
+        let i = 0;
+        const video = document.getElementById('videoBackground');
+        const audio = document.getElementById('TheFuckingBackGroundMusic');
+        function typeText() {
+            if (i < text.length) {
+                button.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeText, 100); 
+            }
+        }
+        typeText();
+        button.addEventListener('click', () => {
+            video.style.visibility = 'visible';  
+            audio.play();  
+            video.play();  
+
+            button.style.opacity = '0'; 
+            setTimeout(() => {
+                button.style.display = 'none'; 
+            }, 1000); 
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="undetek-favicon-100x100.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <style>
+
+
+
+
+
+        :root {
+            --primary-color: #a3336d;
+            --secondary-color: #1a1a1a;
+            --text-color: #ffffff;
+            --background-color: #0a0a0a;
+            --neon-glow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 15px var(--primary-color);
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .panel {
+            background-color: rgba(26, 26, 26, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 0 20px #a3336d;
+            backdrop-filter: blur(10px);
+            touch-action: none;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1, h2 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: var(--neon-glow);
+            text-transform: lowercase;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: var(--text-color);
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+        button {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: lowercase;
+        }
+        .log-entry {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary-color);
+            width: 90%;
+        }
+        .welcome-byte {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 18px;
+            color: var(--primary-color);
+            text-shadow: var(--neon-glow);
+            z-index: 3;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: var(--secondary-color);
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+        }
+        .close {
+            color: var(--text-color);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .blur-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+            font-size: 24px;
+            text-shadow: var(--neon-glow);
+        }
+        .chat-messages {
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            width: 90%;
+        }
+        .chat-message {
+            margin-bottom: 5px;
+            word-wrap: break-word;
+        }
+        #chat-input {
+            width: 70%;
+            display: inline-block;
+        }
+        #send-message {
+            width: 25%;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-byte">[ + ] welcome user</div>
+    <div class="container">
+        <div class="panel login-form">
+            <h1>undetek</h1>
+            <input type="text" placeholder="username">
+            <input type="password" placeholder="password">
+            <input type="text" placeholder="invite key">
+            <button id="loginBtn">login</button>
+            <button>register</button>
+        </div>
+        <div class="panel logs">
+            <h2> Update Logs</h2>
+            <div class="log-entry">[ + ] da hood support</div>
+            <div class="log-entry">[ + ] bullet TP</div>
+            <div class="log-entry">[ + ] rapid fire</div>
+        </div>
+        <div class="panel invite-key">
+            <h2>invite key</h2>
+            <p>purchase :c</p>
+            <button id="purchaseBtn">purchase invite</button>
+        </div>
+        <div class="panel status">
+            <h2>status</h2>
+            <div class="log-entry">[ + ] safe to use</div>
+        </div>
+        <div class="panel chat">
+            <h2>chat [disabled]</h2>
+            <div id="chat-messages" class="chat-messages"></div>
+            <input type="text" id="chat-input" placeholder="type a message...">
+            <button id="send-message">send</button>
+        </div>
+    </div>
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Select Payment Method</h2>
+            <button id="cashappBtn">Cashapp</button>
+            <button id="paypalBtn">PayPal</button>
+            <button id="cryptoBtn">Crypto</button>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('cashappBtn').onclick = function() {
+            window.location.href = 'https://undetek.sellsn.io/checkout'; 
+        };
+        document.getElementById('paypalBtn').onclick = function() {
+            window.location.href = 'https://undetek.sellsn.io/checkout'; 
+        };
+        document.getElementById('cryptoBtn').onclick = function() {
+            window.location.href = 'https://undetek.sellsn.io/checkout'; 
+        };
+    </script>
+    
+    </div>
+    <div class="blur-overlay"></div>
+    <script>
+        const purchaseBtn = document.getElementById('purchaseBtn');
+        const modal = document.getElementById('paymentModal');
+        const closeBtn = document.getElementsByClassName('close')[0];
+        const loginBtn = document.getElementById('loginBtn');
+        const blurOverlay = document.querySelector('.blur-overlay');
+
+        purchaseBtn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        loginBtn.addEventListener('click', () => {
+            blurOverlay.textContent = "checking invite";
+            blurOverlay.style.display = "flex";
+            
+            setTimeout(() => {
+                blurOverlay.textContent = "incorrect invite key";
+                setTimeout(() => {
+                    blurOverlay.style.display = "none";
+                }, 1000);
+            }, 3000);
+        });
+
+        interact('.panel').draggable({
+            inertia: true,
+            modifiers: [
+                interact.modifiers.restrictRect({
+                    restriction: 'parent',
+                    endOnly: true
+                })
+            ],
+            autoScroll: true,
+            listeners: {
+                move(event) {
+                    const target = event.target;
+                    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+                    target.style.transform = `translate(${x}px, ${y}px)`;
+                    target.setAttribute('data-x', x);
+                    target.setAttribute('data-y', y);
+                }
+            }
+        });
+
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.style.backgroundColor = 'rgba(0, 255, 170, 0.2)';
+            });
+
+            input.addEventListener('blur', () => {
+                input.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            });
+        });
+
+        // Chat feature
+        const sendMessageBtn = document.getElementById('send-message');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        sendMessageBtn.addEventListener('click', () => {
+            const message = chatInput.value;
+            if (message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('chat-message');
+                messageDiv.textContent = message;
+                chatMessages.appendChild(messageDiv);
+                chatInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessageBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>
+
+<script src="./assets/js/title.js"></script>
+<div id="panel">
+
+
+</body>
+<script>
+    function register() {
+        toastr["info"]("Checking your invite", "Info");
+        var invite = $('.cinvite').val();
+        
+        var data = new FormData();
+        data.append('invite', invite);
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://stressful.live/api/auth/register/");
+        xhr.onload = function () {
+            var rt = JSON.parse(xhr.responseText);
+            toastr[rt.toast](rt.message, rt.title);
+            if (rt.toast == "success") {
+                toastr["info"]("Refreshing dashboard", "Info");
+                window.setTimeout(function(){
+                    location.reload();
+                }, 2000);
+            };
+        };
+        xhr.send(data);
+        return false;
+        
+    };
+    function setup() {
+        toastr["info"]("", "Creating your account");
+        var username = $('.setupusername').val();
+        var displayname = $('.setupuid').val();
+        
+        var data = new FormData();
+        data.append('username', username);
+        data.append('uid', displayname);
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://stressful.live/api/cheat/create/");
+        xhr.onload = function () {
+            var rt = JSON.parse(xhr.responseText);
+            toastr[rt.toast](rt.message, rt.title);
+            if (rt.toast == "success") {
+                toastr["info"]("Refreshing dashboard", "Info");
+                window.setTimeout(function(){
+                    location.reload();
+                }, 2000);
+            };
+        };
+        xhr.send(data);
+        return false;
+        
+    };
+</script>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    function isDevToolsOpen() {
+      const threshold = 160;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      return (window.outerWidth - width > threshold) || (window.outerHeight - height > threshold);
+    }
+
+    setInterval(function() {
+      if (isDevToolsOpen()) {
+        alert("stop skidding.");
+        window.location.href = "pornhub.com"; 
+      }
+    }, 1000);
+
+    document.addEventListener("keydown", function(e) {
+      if ((e.key === "F12") || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+        e.preventDefault(); 
+        alert("stop skidding.");
+      }
+    });
+
+    document.addEventListener("contextmenu", function(e) {
+      e.preventDefault(); 
+      alert("stop skidding.");
+    });
+
+    (function() {
+      const noop = () => {}; 
+      const fakeConsole = {
+        log: noop,
+        info: noop,
+        warn: noop,
+        error: noop,
+        debug: noop
+      };
+      window.console = fakeConsole; 
+    })();
+  </script>
+</head>
+<body>
+</body>
+</html>
