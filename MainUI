@@ -70,7 +70,7 @@ local library = {
 
 library.themes = {
     {
-        name = 'Default',
+        name = 'Undetek',
         theme = {
             ['Accent']                    = fromrgb(163,50,107);
             ['Background']                = fromrgb(17,17,17);
@@ -1739,7 +1739,7 @@ function library:init()
 
         ---- Create Dropdown ----
         do
-            -- Default Objects
+            -- Undetek Objects
             do
                 local objs = window.dropdown.objects;
                 local z = library.zindexOrder.dropdown;
@@ -4823,7 +4823,7 @@ themeSection:AddList({text = 'Presets', flag = 'preset_theme', values = themeStr
             end
         end
         setByPreset = false
-    end}):Select('Default');
+    end}):Select('Undetek');
 
     for i, v in pairs(library.theme) do
         themeSection:AddColor({text = i, flag = i, color = library.theme[i], callback = function(c3)
